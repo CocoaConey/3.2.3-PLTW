@@ -1,3 +1,4 @@
+all_orders = []
 while True:
     drink_size = "None"
     orders = ["", "", "", 0]
@@ -145,11 +146,12 @@ while True:
         print ("you ordered:")
         print (orders)
         break
+    all_orders.append(orders[:])
     if donut_total + drink_total + Hole_Order_Total >= 3.00:
         print ("You ordered the combo and saved one dollar!")
         Order_Total -= 1.00
         print (f"Your final total is {Order_Total:.2f}$")
-        break
+        # Removed break to allow multiple orders
     order_more = input("Would you like to make any other order?")
-    if order_more == " no":
+    if order_more == " No":
         break
